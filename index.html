@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Happy Birthday  🥳</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+      font-family: 'Inconsolata' !important;
+      src: url('Inconsolata.otf') format("truetype");
+		}
+
+		.hidden {
+            display: none;
+        }
+        #hiddenButton {
+            position: fixed;
+            bottom: 10px;
+            left: 48%;
+            font-size:36;
+            transform: translateX(-50%);
+            background-color: black;
+        }
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44608387-1', 'simonmysun.github.io');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body>
+<div style="position:relative">
+  <div style="position:absolute;left:0;top:0">
+  	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+
+
+				<span style='color:#FFFFFF; '>   Made </span><span style='color:#FFFFFF; '> With</span><span style='color:#ff0000; '> ❤ </span><span style='color:#FFFFFF; ; '>by </span><span style='color:#FFFFFF;'> Ankit
+						</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Sneha, you've lived for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Long live My Friend, <br />
+						We all love u forever and ever.<br/>
+						<span style="color:#FFFFFF">
+							<big>
+								Happy Birthday!  🥳
+							</big>
+						</span>
+						<br />
+						<div class="signature">
+							Sneha
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			</div>
+</div>
+  <div style="position:absolute;left:0;top:0">
+    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+  </div>
+</div>
+<!-- Button With link initially hidden -->
+<button id="hiddenButten" class="hidden">
+	<a href="https://rajput-ankit-singh.github.io/Birthday-Wisher"> Click for More Surprise  🎁 </a>
+</button>
+  <script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(1992, 9, 18);
+		together.setHours(10);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+
+		  //   function to show the button after 18 seconds
+          $(document).ready(function() {
+	      setTimeout(function() {
+		  $("#hiddenButton").removeClass("hidden");
+	      }, 18000); // 18 seconds delay
+          });
+  </script>
+  <script type="text/javascript" src="js/fireworks.js"></script>
+</body>
+</html>
