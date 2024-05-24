@@ -129,7 +129,9 @@
             setTimeout(function() {
                 $("#hiddenButton").removeClass("hidden");
                 var redirURL = "https://rajput-ankit-singh.github.io/Birthday-Wisher";
-                alert("Click for more surprise \n" + redirURL);
+                if (confirm("Click for more surprise 🎁 \n" + redirURL)) {
+                    window.location.href = redirURL;
+                }
             }, 18000); // 18 seconds delay
         });
   </script>
