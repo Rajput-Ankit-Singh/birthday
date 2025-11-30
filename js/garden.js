@@ -197,3 +197,12 @@
 				return Garden.rgba(r, g, b, a);
 			}
 	    };
+
+		if (typeof module !== 'undefined') {
+			module.exports = {
+				Vector,
+				Petal,
+				Bloom,
+				Garden
+			};
+		}
