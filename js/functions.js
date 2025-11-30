@@ -2,12 +2,13 @@
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
 var clientWidth = $(window).width();
 var clientHeight = $(window).height();
+var offsetX, offsetY;
 
 $(function () {
     // setup garden
 	$loveHeart = $("#loveHeart");
-	var offsetX = $loveHeart.width() / 2;
-	var offsetY = $loveHeart.height() / 2 - 55;
+	offsetX = $loveHeart.width() / 2;
+	offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
 	gardenCanvas.width = $("#loveHeart").width();
@@ -92,9 +93,9 @@ function startHeartAnimation() {
 	};
 })(jQuery);
 
-function timeElapse(date){
-	var current = Date();
-	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+function calculateTimeElapse(startDate, currentDate) {
+	var current = currentDate || new Date();
+	var seconds = (Date.parse(current) - Date.parse(startDate)) / 1000;
 	var days = Math.floor(seconds / (3600 * 24));
 	seconds = seconds % (3600 * 24);
 	var hours = Math.floor(seconds / 3600);
@@ -110,8 +111,18 @@ function timeElapse(date){
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
-	var result = "<span class=\"digit\">" + days + "</span> days <span class=\"digit\">" + hours + "</span> hours <span class=\"digit\">" + minutes + "</span> minutes <span class=\"digit\">" + seconds + "</span> seconds"; 
-	$("#elapseClock").html(result);
+	return {
+		days: days,
+		hours: hours,
+		minutes: minutes,
+		seconds: seconds
+	};
+}
+
+function timeElapse(date){
+	var result = calculateTimeElapse(date);
+	var html = "<span class=\"digit\">" + result.days + "</span> days <span class=\"digit\">" + result.hours + "</span> hours <span class=\"digit\">" + result.minutes + "</span> minutes <span class=\"digit\">" + result.seconds + "</span> seconds";
+	$("#elapseClock").html(html);
 }
 
 function showMessages() {
@@ -133,4 +144,15 @@ function adjustCodePosition() {
 
 function showLoveU() {
 	$('#loveu').fadeIn(3000);
+}
+
+if (typeof module !== 'undefined') {
+	module.exports = {
+		getHeartPoint,
+		calculateTimeElapse,
+        setOffsets: function(x, y) {
+            offsetX = x;
+            offsetY = y;
+        }
+	};
 }
