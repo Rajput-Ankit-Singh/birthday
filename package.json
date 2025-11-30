@@ -4,7 +4,7 @@
   "description": "This is a page used to celebrate my friend's birthday, using the idea and frame from HackerZhou.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/Rajput-Ankit-Singh/birthday#readme",
   "devDependencies": {
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0"
+ain
   }
 }

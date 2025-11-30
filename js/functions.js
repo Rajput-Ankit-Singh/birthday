@@ -144,10 +144,6 @@ function adjustCodePosition() {
 
 function showLoveU() {
 	$('#loveu').fadeIn(3000);
-    // Start confetti
-    confetti.start();
-    // Add heartbeat to garden
-    $("#garden").addClass("heartbeat");
 }
 
 if (typeof module !== 'undefined') {
